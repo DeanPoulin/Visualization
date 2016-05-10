@@ -238,6 +238,38 @@
                     callback(w);
                 });
             }
+        },
+        UnorderedList: {
+            simple: function (callback) {
+                require(["src/other/UnorderedList"], function (UnorderedList) {
+                    var unorderedList = new UnorderedList()
+                        .columns(["Column A", "Column B"])
+                        .data([
+                            ["ABC123", 7],
+                            ["DEF456", 7],
+                            ["GHI789", 7],
+                            ["JKL343", 7],
+                            ["MNO3454", 7],
+                            ["PQR454", 7],
+                            ["STU56654", 7],
+                            ["VWX4565", 7]
+                        ]);
+
+                    callback(unorderedList);
+                });
+            }
+            //array: function (callback) {
+            //    require(["src/other/UnorderedList"], function (UnorderedList) {
+            //        var w = new UnorderedList();
+            //        var arr = [];
+            //        var testCellCount = 300;
+            //        for(var i = 0;i<testCellCount;i++){
+            //            arr.push('<div style="border:1px solid red;float:left;margin:10px;padding:10px;font-size:20px;">Test '+i+'</div>');
+            //        }
+            //        w.data(arr);
+            //        callback(w);
+            //    });
+            //}
         }
     };
 }));
