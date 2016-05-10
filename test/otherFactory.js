@@ -242,34 +242,45 @@
         UnorderedList: {
             simple: function (callback) {
                 require(["src/other/UnorderedList"], function (UnorderedList) {
-                    var unorderedList = new UnorderedList()
+                    var dataList = new UnorderedList()
                         .columns(["Column A", "Column B"])
                         .data([
-                            ["ABC123", 7],
-                            ["DEF456", 7],
-                            ["GHI789", 7],
-                            ["JKL343", 7],
-                            ["MNO3454", 7],
-                            ["PQR454", 7],
-                            ["STU56654", 7],
-                            ["VWX4565", 7]
+                            ["ABC123", 0],
+                            ["DEF456", 0],
+                            ["GHI789", 1],
+                            ["JKL343", 1],
+                            ["MNO3454", 0],
+                            ["PQR454", 1],
+                            ["STU56654", 1],
+                            ["VWX4565", 1]
                         ]);
 
-                    callback(unorderedList);
+                    callback(dataList);
                 });
             }
-            //array: function (callback) {
-            //    require(["src/other/UnorderedList"], function (UnorderedList) {
-            //        var w = new UnorderedList();
-            //        var arr = [];
-            //        var testCellCount = 300;
-            //        for(var i = 0;i<testCellCount;i++){
-            //            arr.push('<div style="border:1px solid red;float:left;margin:10px;padding:10px;font-size:20px;">Test '+i+'</div>');
-            //        }
-            //        w.data(arr);
-            //        callback(w);
-            //    });
-            //}
+        },
+        DataList: {
+            simple: function (callback) {
+                require(["src/other/DataList"], function (UnorderedList) {
+                    var dataList = new UnorderedList()
+                        .columns(["Column A", "Column B"])
+                        .data(
+                            ["GJS0", [["CHILD101", 7], ["CHILDn02", 7], ["CHILD003", 7], ["CHILD004", 7]], 7],
+                            ["GJS0", [["CHILD201", 7], ["CHILDm02", 7], ["CHILD003", 7], ["CHILD004", 7]], 7],
+                            ["GJS0", [["CHILD301", 7], ["CHILDl02", 7], ["CHILD003", 7], ["CHILD004", 7]], 7],
+                            ["GJS0", [["CHILD401", 7], ["CHILDk02", 7], ["CHILD003", 7], ["CHILD004", 7]], 7],
+                            ["GJS0", [["CHILD501", 7], ["CHILDj02", 7], ["CHILD003", 7], ["CHILD004", 7]], 7],
+                            ["GJS0", [["CHILD601", 7], ["CHILDi02", 7], ["CHILD003", 7], ["CHILD004", 7]], 7],
+                            ["GJS0", [["CHILD701", 7], ["CHILDh02", 7], ["CHILD003", 7], ["CHILD004", 7]], 7],
+                            ["GJS0", [["CHILD801", 7], ["CHILDg02", 7], ["CHILD003", 7], ["CHILD004", 7]], 7],
+                            ["GJS0", [["CHILD901", 7], ["CHILDf02", 7], ["CHILD003", 7], ["CHILD004", 7]], 7],
+                            ["GJS0", [["CHILDa01", 7], ["CHILDe02", 7], ["CHILD003", 7], ["CHILD004", 7]], 7],
+                            ["GJS0", [["CHILDc01", 7], ["CHILDd02", 7], ["CHILD003", 7], ["CHILD004", 7]], 7]);
+
+                    callback(dataList);
+                });
+            }
         }
+
     };
 }));

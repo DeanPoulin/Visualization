@@ -1,42 +1,45 @@
 "use strict";
 (function (root, factory) {
     if (typeof define === "function" && define.amd) {
-        define(["../common/HTMLWidget","css!./UnorderedList"], factory);
+        define(["../common/HTMLWidget","css!./DataList"], factory);
     } else {
-        root.other_UnorderedList = factory(root.common_HTMLWidget);
+        root.other_DataList = factory(root.common_HTMLWidget);
     }
 }(this, function (HTMLWidget) {
-    function UnorderedList() {
+    function DataList() {
         HTMLWidget.call(this);
         this._tag = "div";
     }
 
-    UnorderedList.prototype = Object.create(HTMLWidget.prototype);
-    UnorderedList.prototype.constructor = UnorderedList;
-    UnorderedList.prototype._class += " other_UnorderedList";
+    DataList.prototype = Object.create(HTMLWidget.prototype);
+    DataList.prototype.constructor = DataList;
+    DataList.prototype._class += " other_DataList";
 
-    UnorderedList.prototype.enter = function (domNode, element) {
+    DataList.prototype.enter = function (domNode, element) {
         HTMLWidget.prototype.enter.apply(this, arguments);
 
         this._ul = element.append("ul");
     };
 
-    UnorderedList.prototype.update = function (domNode, element) {
+    DataList.prototype.update = function (domNode, element) {
         HTMLWidget.prototype.update.apply(this, arguments);
+
         var li = this._ul.selectAll(".dataRow").data(this.data());
 
         li.enter()
             .append("li")
             .attr("class", "dataRow");
 
-        li.text(function (d) { return d[0]; });
+        li.text(function (d) {
+            return d[0];
+        });
 
         li.exit().remove();
     };
 
-    UnorderedList.prototype.exit = function (domNode, element) {
+    DataList.prototype.exit = function (domNode, element) {
         HTMLWidget.prototype.exit.apply(this, arguments);
     };
 
-    return UnorderedList;
+    return DataList;
 }));
